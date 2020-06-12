@@ -31,9 +31,14 @@ class removeIf(ast.NodeTransformer):
         return None
 
 
+class removeExpr(ast.NodeTransformer):
+    def visit_Expr(self, node):
+        return None
+
+
 with sample_fp.open() as source:
     tree = ast.parse(source.read())
-    print("####### BEFORE #######\n")
+    print("####### BEFORE #################################################\n")
     print(astor.to_source(tree))
 
     # call transformer
@@ -41,7 +46,7 @@ with sample_fp.open() as source:
 
     # return source code
     extracted = astor.to_source(tree)
-    print("####### AFTER #######\n")
+    print("####### AFTER #################################################\n")
     print(extracted)
 
 # print(astor.dump_tree(tree))
