@@ -7,7 +7,7 @@ import os
 import astor
 
 
-def inspect(file_path: str, types_to_keep=None):
+def convert(file_path: str, types_to_keep=None):
     if types_to_keep == None:
         types_to_keep = (_ast.Import, _ast.ImportFrom, _ast.ClassDef, _ast.FunctionDef)
 
@@ -43,4 +43,4 @@ def inspect(file_path: str, types_to_keep=None):
 
 
 if __name__ == "__main__":
-    inspect("Samples/sample_file_1.py")
+    convert("Samples/sample_file_1.py")
